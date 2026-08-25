@@ -1,600 +1,1454 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="KLVN — DJ / Music Artist | Philippines">
-<title>KLVN — DJ / MUSIC ARTIST</title>
+/* =========================================================
+   KLVN — DJ PRESS KIT
+   style.css
+   ========================================================= */
 
-<link rel="stylesheet" href=styles/general.css"/>
-	<link rel="stylesheet" href=styles/header.css"/>
-	<link rel="stylesheet" href=styles/video.css"/>
-	<link rel="stylesheet" href=styles/sidebar.css"/>
-:root{
-  --bg:#080808;
-  --surface:#111;
-  --surface2:#171717;
-  --text:#f3f3f3;
-  --muted:#9a9a9a;
-  --line:#292929;
-  --max:1200px;
+:root {
+    --bg: #070707;
+    --surface: #101010;
+    --surface-2: #161616;
+    --text: #f5f5f5;
+    --muted: #8e8e8e;
+    --line: #282828;
+    --white: #ffffff;
+    --black: #000000;
+
+    --max-width: 1240px;
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--bg);
-  color:var(--text);
-  font-family:Arial, Helvetica, sans-serif;
-  line-height:1.5;
-  overflow-x:hidden;
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-a{color:inherit;text-decoration:none}
-img{max-width:100%;display:block}
-.container{width:min(var(--max),92%);margin:auto}
-.section{padding:110px 0}
-.kicker{
-  color:var(--muted);
-  font-size:12px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  margin-bottom:18px
+
+html {
+    scroll-behavior: smooth;
+    background: var(--bg);
 }
-h2{
-  font-size:clamp(42px,7vw,90px);
-  line-height:.9;
-  text-transform:uppercase;
-  letter-spacing:-.05em;
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.5;
+    overflow-x: hidden;
 }
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  min-height:48px;
-  padding:0 22px;
-  border:1px solid #fff;
-  font-size:12px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  transition:.3s;
+
+body::-webkit-scrollbar {
+    width: 8px;
 }
-.btn:hover{background:#fff;color:#000}
-.btn.secondary{border-color:var(--line);color:#ccc}
-.btn.secondary:hover{border-color:#fff;color:#000}
-header{
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:100;
-  background:rgba(8,8,8,.72);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.08);
+
+body::-webkit-scrollbar-track {
+    background: #050505;
 }
-.nav{
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+
+body::-webkit-scrollbar-thumb {
+    background: #333;
 }
-.logo{font-weight:900;letter-spacing:.15em}
-.nav-links{display:flex;gap:28px;font-size:11px;letter-spacing:.12em}
-.nav-links a{color:#bbb;transition:.25s}
-.nav-links a:hover{color:#fff}
-.menu{display:none;background:none;border:0;color:#fff;font-size:24px}
 
-.hero{
-  min-height:150vh;
-  display:flex;
-  align-items:flex-end;
-  position:relative;
-  overflow:hidden;
-  background:
-    linear-gradient(200deg,rgba(0,0,0,.15),rgba(0,0,0,.92)),
-    url("images/hero.jpg") center/cover no-repeat;
+a {
+    color: inherit;
+    text-decoration: none;
 }
-.hero::after{
-  content:"";
-  position:absolute;inset:0;
-  background:radial-gradient(circle at 70% 30%,transparent 0,rgba(0,0,0,.25) 45%,rgba(0,0,0,.72) 100%);
-  pointer-events:none;
+
+img {
+    display: block;
+    max-width: 100%;
 }
-.hero-content{position:relative;z-index:2;padding:0 0 80px}
-.hero h1{
-  font-size:clamp(90px,19vw,270px);
-  line-height:.72;
-  letter-spacing:-.09em;
-  font-weight:900;
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
 }
-.hero-sub{
-  margin-top:28px;
-  display:flex;
-  justify-content:space-between;
-  align-items:end;
-  gap:30px;
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+.container {
+    width: min(var(--max-width), 90%);
+    margin: 0 auto;
 }
-.hero-sub p{max-width:520px;color:#c5c5c5;font-size:17px}
-.hero-actions{display:flex;gap:10px;flex-wrap:wrap}
-.scroll{position:absolute;right:4%;bottom:30px;z-index:3;color:#aaa;font-size:10px;letter-spacing:.18em}
 
-.intro-grid,.bio-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
-.intro-copy p,.bio-copy p{color:#b4b4b4;font-size:18px;max-width:650px;margin:25px 0}
-.portrait{
-  aspect-ratio:4/5;
-  background:url("images/portrait.jpg") center/cover no-repeat;
-  filter:grayscale(100%);
+.section {
+    padding: 125px 0;
 }
-.info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);margin-top:55px}
-.info{background:var(--bg);padding:25px}
-.info span{display:block;color:#666;font-size:10px;letter-spacing:.15em;margin-bottom:8px}
-.info strong{font-size:14px;font-weight:500}
 
-.music-header{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:45px}
-.music-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.mix{
-  min-height:330px;
-  position:relative;
-  overflow:hidden;
-  padding:28px;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  background:#151515 center/cover no-repeat;
+.kicker {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
-.mix::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 20%,rgba(0,0,0,.9))}
-.mix > *{position:relative;z-index:1}
-.mix:nth-child(1){background-image:url("images/mix1.jpg")}
-.mix:nth-child(2){background-image:url("images/mix2.jpg")}
-.mix:nth-child(3){background-image:url("images/mix3.jpg")}
-.mix:nth-child(4){background-image:url("images/mix4.jpg")}
-.mix small{color:#bbb;letter-spacing:.12em;text-transform:uppercase}
-.mix h3{font-size:30px;text-transform:uppercase;margin:8px 0}
-.mix .play{margin-top:20px;width:max-content}
 
-.styles{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line)}
-.style{
-  padding:35px 0;
-  border-bottom:1px solid var(--line);
-  transition:.25s;
+h2 {
+    font-size: clamp(48px, 7vw, 100px);
+    font-weight: 800;
+    line-height: .86;
+    letter-spacing: -.065em;
+    text-transform: uppercase;
 }
-.style:hover{padding-left:18px}
-.style-number{color:#666;font-size:11px}
-.style h3{font-size:28px;margin:8px 0;text-transform:uppercase}
-.style p{color:#888;max-width:560px}
 
-.experience-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
-.exp{
-  min-height:340px;
-  display:flex;align-items:flex-end;
-  padding:25px;
-  background:#151515 center/cover no-repeat;
-  position:relative;
-  overflow:hidden;
+p {
+    line-height: 1.75;
 }
-.exp::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 25%,rgba(0,0,0,.85))}
-.exp h3{position:relative;z-index:1;font-size:30px;text-transform:uppercase}
-.exp:nth-child(1){background-image:url("images/club.jpg")}
-.exp:nth-child(2){background-image:url("images/lounge.jpg")}
-.exp:nth-child(3){background-image:url("images/wedding.jpg")}
-.exp:nth-child(4){background-image:url("images/private.jpg")}
-.exp:nth-child(5){background-image:url("images/beach.jpg")}
-.exp:nth-child(6){background-image:url("images/cafe.jpg")}
 
-.gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
-.gallery img{
-  width:100%;height:100%;object-fit:cover;
-  filter:grayscale(80%);
-  transition:.4s;
-  cursor:pointer;
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.btn {
+    min-height: 50px;
+    padding: 0 24px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid var(--white);
+
+    color: var(--white);
+
+    background: transparent;
+
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease;
 }
-.gallery img:hover{filter:grayscale(0);transform:scale(1.02)}
-.g1{grid-column:span 7;height:500px}.g2{grid-column:span 5;height:500px}
-.g3{grid-column:span 4;height:350px}.g4{grid-column:span 4;height:350px}.g5{grid-column:span 4;height:350px}
 
-.video{
-  aspect-ratio:16/9;
-  background:#111 url("images/video-cover.jpg") center/cover no-repeat;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;
+.btn:hover {
+    background: var(--white);
+    color: var(--black);
+    transform: translateY(-2px);
 }
-.video::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.35)}
-.video-btn{
-  position:relative;z-index:1;width:85px;height:85px;border:1px solid #fff;
-  border-radius:50%;display:grid;place-items:center;font-size:20px;
-  transition:.3s
+
+.btn.secondary {
+    border-color: #383838;
+    color: #cfcfcf;
 }
-.video-btn:hover{background:#fff;color:#000;transform:scale(1.08)}
 
-.rider{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.rider-row{display:flex;justify-content:space-between;gap:30px;padding:22px 0;border-bottom:1px solid var(--line)}
-.rider-row:last-child{border:0}
-.rider-row span{color:#666;font-size:11px;letter-spacing:.12em;text-transform:uppercase}
-.rider-row strong{font-weight:500;text-align:right}
-
-.press{background:#111}
-.press-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:50px}
-.press a{background:#111;padding:30px;text-align:center;font-size:11px;letter-spacing:.12em}
-.press a:hover{background:#fff;color:#000}
-
-.booking{background:#f1f1f1;color:#080808}
-.booking h2{color:#080808}
-.booking p{max-width:650px;color:#555;font-size:18px;margin:25px 0}
-.booking .btn{border-color:#080808;color:#080808}
-.booking .btn:hover{background:#080808;color:#fff}
-.form{margin-top:45px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.field{display:flex;flex-direction:column;gap:8px}
-.field.full{grid-column:1/-1}
-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase}
-input,select,textarea{
-  width:100%;border:1px solid #ccc;background:transparent;padding:15px;
-  font:inherit;outline:none
+.btn.secondary:hover {
+    background: var(--white);
+    border-color: var(--white);
+    color: var(--black);
 }
-textarea{min-height:150px;resize:vertical}
-.form button{cursor:pointer}
 
-footer{padding:55px 0;border-top:1px solid var(--line)}
-.footer-top{display:flex;justify-content:space-between;gap:30px;align-items:start}
-.footer-logo{font-size:80px;font-weight:900;letter-spacing:-.07em}
-.socials{display:flex;gap:20px;flex-wrap:wrap;font-size:11px;letter-spacing:.12em}
-.copyright{margin-top:50px;color:#555;font-size:10px;letter-spacing:.12em}
 
-.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
-.reveal.visible{opacity:1;transform:none}
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
 
-@media(max-width:800px){
-  .nav-links{display:none;position:absolute;top:72px;left:0;width:100%;background:#080808;padding:25px;flex-direction:column;gap:20px;border-bottom:1px solid var(--line)}
-  .nav-links.open{display:flex}
-  .menu{display:block}
-  .hero h1{font-size:27vw}
-  .hero-sub{display:block}
-  .hero-actions{margin-top:25px}
-  .intro-grid,.bio-grid{grid-template-columns:1fr;gap:35px}
-  .info-grid{grid-template-columns:1fr}
-  .music-header{display:block}
-  .music-header .btn{margin-top:25px}
-  .music-grid,.styles{grid-template-columns:1fr}
-  .experience-grid{grid-template-columns:1fr}
-  .gallery{grid-template-columns:1fr}
-  .g1,.g2,.g3,.g4,.g5{grid-column:span 1;height:360px}
-  .press-grid{grid-template-columns:1fr 1fr}
-  .form{grid-template-columns:1fr}
-  .field.full{grid-column:auto}
-  .footer-top{display:block}
-  .socials{margin-top:25px}
-  .footer-logo{font-size:70px}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 999;
+
+    background: rgba(7, 7, 7, .72);
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
 }
-</style>
-</head>
 
-<body>
+.nav {
+    height: 72px;
 
-<header>
-  <div class="container nav">
-    <a href="#home" class="logo">KLVN</a>
-    <nav class="nav-links" id="navLinks">
-      <a href="#about">ABOUT</a>
-      <a href="#music">MUSIC</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#media">MEDIA</a>
-      <a href="#booking">BOOKING</a>
-    </nav>
-    <button class="menu" id="menuBtn" aria-label="Open menu">☰</button>
-  </div>
-</header>
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-<main>
+.logo {
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: .2em;
+}
 
-<section class="hero" id="home">
-  <div class="container hero-content">
-    <div class="kicker">DJ / MUSIC ARTIST — QUEZON CITY, PHILIPPINES</div>
-    <h1>KLVN</h1>
-    <div class="hero-sub">
-      <p>Curating sound, atmosphere, and unforgettable nights — pushing genre-bounderies.</p>
-      <div class="hero-actions">
-        <a class="btn" href="#music">LISTEN TO MIXES</a>
-        <a class="btn secondary" href="#booking">BOOK KLVN</a>
-      </div>
-    </div>
-  </div>
-  <div class="scroll">SCROLL TO EXPLORE ↓</div>
-</section>
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
 
-<section class="section reveal" id="about">
-  <div class="container">
-    <div class="intro-grid">
-      <div class="intro-copy">
-        <div class="kicker">01 — THE ARTIST</div>
-        <h2>The Sound<br>of KLVN</h2>
-        <p>KLVN is a Philippines-based DJ and music artist focused on creating immersive sets that move naturally between rhythm, atmosphere, and energy.</p>
-        <p>From intimate lounge sessions to nightlife, weddings, private celebrations, and open-format events, every set is built around the room, the crowd, and the moment.</p>
-      </div>
-      <div class="portrait"></div>
-    </div>
+    font-size: 10px;
+    letter-spacing: .14em;
+}
 
-    <div class="info-grid">
-      <div class="info"><span>BASED IN</span><strong>Quezon City, Philippines</strong></div>
-      <div class="info"><span>STYLE</span><strong>House / R&B / UKG / Miami Bass / Jersey CLub / Amapiano / Edits </strong></div>
-      <div class="info"><span>AVAILABLE FOR</span><strong>Clubs / Bars / Cafe / Lounges / Weddings / Private / Beach Resorts</strong></div>
-    </div>
-  </div>
-</section>
+.nav-links a {
+    color: #999;
 
-<section class="section reveal" id="music">
-  <div class="container">
-    <div class="music-header">
-      <div>
-        <div class="kicker">02 — MUSIC</div>
-        <h2>Listen</h2>
-      </div>
-      <a class="btn secondary" href="https://soundcloud.com/kalv-atienza" target="_blank">SOUNDCLOUD →</a>
-    </div>
-    <div class="music-grid">
-      <article class="mix">
-        <small>Mixtape — Episode 01</small>
-        <h3>SALA Session Ep.1 - Baile Funk</h3>
-        <small>A mixtape by KLVN</small>
-        <a class="btn play" href="https://on.soundcloud.com/Fzl9XA374WdvWtzGgB" target="_blank">▶ PLAY MIX</a>
-      </article>
-      <article class="mix">
-        <small>Mixtape — Episode 02</small>
-        <h3>SALA Session Ep.2 - RNB Edits</h3>
-        <small>A mixtape by KLVN</small>
-        <a class="btn play" href="https://soundcloud.com/" target="_blank">▶ PLAY MIX</a>
-      </article>
-	<article class="mix">
-	<small>Mixtape - Episode 3</small>
-	<h3>SALA Session Ep.3 - Club Edits</h3>
-	<small> A mixtape by KLVN</small>
-	<a class="btn play" href="https://on.soundcloud.com/qD8StEgwvowd8krKab" target="_blank">▶ PLAY MIX</a>
-      </article>
-	<article class="mix">
-	<small>Mixtape - Episode 4</small>
-	<h3>SALA Session Ep.4 - Beach Vibe - Tropical House & Coastal Beats</h3>
-	<small> A mixtape by KLVN</small>
-	<a class="btn play" href="https://on.soundcloud.com/5MwVPxudQzmwCIca0V" target="_blank">▶ PLAY MIX</a>
-    </div>
-  </div>
-</section>
+    transition:
+        color .25s ease;
+}
 
-<section class="section reveal">
-  <div class="container">
-    <div class="kicker">03 — MUSICAL IDENTITY</div>
-    <h2>One DJ.<br>Many Atmospheres.</h2>
-    <div class="styles" style="margin-top:55px">
-      <div class="style"><span class="style-number">01</span><h3>Lounge</h3><p>Smooth selections, warm grooves, and laid-back energy designed around the atmosphere.</p></div>
-      <div class="style"><span class="style-number">02</span><h3>Club</h3><p>High-energy transitions and carefully paced selections designed for the dancefloor.</p></div>
-      <div class="style"><span class="style-number">03</span><h3>Beach Set</h3><p>A laid-back beach atmosphere blending tropical grooves, deep house, and feel-good rhythms from sunset into the night.</p></div>
-      <div class="style"><span class="style-number">04</span><h3>Weddings & Events</h3><p>Crowd-focused programming that adapts naturally to every moment of the celebration.</p></div>
-      <div class="style"><span class="style-number">05</span><h3>Café</h3><p>Relaxed, warm, and laid-back — soft tropical grooves, chill house, and mellow beats.</p></div>
-    </div>
-  </div>
-</section>
+.nav-links a:hover {
+    color: #fff;
+}
+
+.menu {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #fff;
+
+    font-size: 24px;
+
+    cursor: pointer;
+}
 
 
-<section class="section reveal">
-  <div class="container">
-    <div class="kicker">04 — Events and Venue</div>
-    <h2>Different Venues<br>Unique Experiences.</h2>
-    <div class="styles" style="margin-top:55px">
-      <div class="style"><span class="style-number">01</span><h3>Bar</h3>
-           <p>Greater Good Bar - Quezon city |
-              Sola Poblacion - San Pablo City |
-              Cuptive Bar - San Pablo City.
-      </p></div>
+/* =========================================================
+   HERO
+   ========================================================= */
 
-      
-      <div class="style"><span class="style-number">02</span><h3>Beach Resorts</h3>
-            <p>Sand Dunes Liwa - Zambales |
-              Mula De La Paz - Zambales 
-      </p></div>
+.hero {
+    min-height: 150vh;
+
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            200deg,
+            rgba(0,0,0,.1),
+            rgba(0,0,0,.94)
+        ),
+        url("images/hero.jpg")
+        center center / cover
+        no-repeat;
+}
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 65% 30%,
+            transparent 0%,
+            rgba(0,0,0,.2) 40%,
+            rgba(0,0,0,.8) 100%
+        );
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    opacity: .05;
+
+    pointer-events: none;
+
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    padding-bottom: 90px;
+}
+
+.hero h1 {
+    font-size: clamp(100px, 19vw, 280px);
+
+    font-weight: 900;
+
+    line-height: .68;
+
+    letter-spacing: -.095em;
+}
+
+.hero-sub {
+    margin-top: 38px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 40px;
+}
+
+.hero-sub p {
+    max-width: 560px;
+
+    color: #bdbdbd;
+
+    font-size: 16px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.scroll {
+    position: absolute;
+
+    right: 4%;
+    bottom: 35px;
+
+    z-index: 4;
+
+    color: #888;
+
+    font-size: 9px;
+
+    letter-spacing: .2em;
+
+    writing-mode: vertical-rl;
+}
 
 
-      <div class="style"><span class="style-number">03</span><h3>Private Events</h3>
-             <p> Freshies Night - Lyceum of the Philippines University (LPU-BTG)|
-                 Uno Rave Party - Lyceum of the Philippines University (LPU-BTG) | 
-		Bario Festa - Quezon Province | Bario House Party - Quezon Province.
-      </p></div>
+/* =========================================================
+   ABOUT
+   ========================================================= */
 
-      <div class="style"><span class="style-number">04</span><h3>Wedding</h3>
-	      <p> Neneth & Ashley Wedding - Biñan City, Laguna.
-	</p></div>
+.intro-grid,
+.bio-grid {
+    display: grid;
 
-      <div class="style"><span class="style-number">04</span><h3>Corporate</h3>
-	      <p> SMS Tire Depot Christmas Party - Lipa City
-	</p></div>
+    grid-template-columns: 1.05fr .95fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.intro-copy p,
+.bio-copy p {
+    max-width: 650px;
+
+    margin: 25px 0;
+
+    color: #a5a5a5;
+
+    font-size: 16px;
+}
+
+.portrait {
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    background:
+        url("images/portrait.jpg")
+        center / cover
+        no-repeat;
+
+    filter: grayscale(100%);
+
+    transition:
+        filter .5s ease,
+        transform .5s ease;
+}
+
+.portrait:hover {
+    filter: grayscale(0);
+    transform: scale(1.015);
+}
+
+.info-grid {
+    margin-top: 65px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+}
+
+.info {
+    padding: 28px;
+
+    background: var(--bg);
+}
+
+.info span {
+    display: block;
+
+    margin-bottom: 10px;
+
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: .18em;
+
+    text-transform: uppercase;
+}
+
+.info strong {
+    color: #ddd;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    line-height: 1.6;
+}
 
 
-      </div>
-  </div>
-</section>
+/* =========================================================
+   MUSIC
+   ========================================================= */
+
+.music-header {
+    margin-bottom: 55px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 30px;
+}
+
+.music-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+}
+
+.mix {
+    min-height: 380px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    padding: 32px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background:
+        #151515
+        center / cover
+        no-repeat;
+
+    transition:
+        transform .5s ease;
+}
+
+.mix::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 15%,
+            rgba(0,0,0,.92) 100%
+        );
+
+    z-index: 0;
+}
+
+.mix::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.05),
+            transparent 40%
+        );
+
+    pointer-events: none;
+}
+
+.mix:hover {
+    transform: scale(1.015);
+}
+
+.mix:nth-child(1) {
+    background-image:
+        url("images/mix1.jpg");
+}
+
+.mix:nth-child(2) {
+    background-image:
+        url("images/mix2.jpg");
+}
+
+.mix:nth-child(3) {
+    background-image:
+        url("images/mix3.jpg");
+}
+
+.mix:nth-child(4) {
+    background-image:
+        url("images/mix4.jpg");
+}
+
+.mix > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+.mix small {
+    color: #aaa;
+
+    font-size: 9px;
+
+    letter-spacing: .15em;
+
+    text-transform: uppercase;
+}
+
+.mix h3 {
+    margin: 8px 0;
+
+    font-size: clamp(24px, 3vw, 38px);
+
+    line-height: .95;
+
+    letter-spacing: -.04em;
+
+    text-transform: uppercase;
+}
+
+.mix .play {
+    width: max-content;
+
+    margin-top: 20px;
+}
 
 
+/* =========================================================
+   MUSICAL IDENTITY
+   ========================================================= */
+
+.styles {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    border-top: 1px solid var(--line);
+}
+
+.style {
+    min-height: 190px;
+
+    padding: 32px 0;
+
+    border-bottom: 1px solid var(--line);
+
+    transition:
+        padding-left .3s ease;
+}
+
+.style:hover {
+    padding-left: 18px;
+}
+
+.style-number {
+    color: #555;
+
+    font-size: 10px;
+
+    letter-spacing: .1em;
+}
+
+.style h3 {
+    margin: 8px 0 12px;
+
+    font-size: 27px;
+
+    line-height: 1;
+
+    text-transform: uppercase;
+}
+
+.style p {
+    max-width: 600px;
+
+    color: #777;
+
+    font-size: 14px;
+}
 
 
+/* =========================================================
+   EVENTS / VENUES
+   ========================================================= */
+
+#experience + .section {
+    background: #0b0b0b;
+}
 
 
+/* =========================================================
+   EXPERIENCE CARDS
+   ========================================================= */
+
+.experience-grid {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2px;
+}
+
+.exp {
+    min-height: 380px;
+
+    position: relative;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding: 28px;
+
+    overflow: hidden;
+
+    background:
+        #151515
+        center / cover
+        no-repeat;
+
+    transition:
+        transform .4s ease;
+}
+
+.exp::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            transparent 15%,
+            rgba(0,0,0,.88)
+        );
+}
+
+.exp:hover {
+    transform: scale(1.015);
+}
+
+.exp h3 {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 32px;
+
+    line-height: 1;
+
+    letter-spacing: -.04em;
+
+    text-transform: uppercase;
+}
+
+.exp:nth-child(1) {
+    background-image:
+        url("images/club.jpg");
+}
+
+.exp:nth-child(2) {
+    background-image:
+        url("images/lounge.jpg");
+}
+
+.exp:nth-child(3) {
+    background-image:
+        url("images/wedding.jpg");
+}
+
+.exp:nth-child(4) {
+    background-image:
+        url("images/private.jpg");
+}
+
+.exp:nth-child(5) {
+    background-image:
+        url("images/beach.jpg");
+}
+
+.exp:nth-child(6) {
+    background-image:
+        url("images/cafe.jpg");
+}
 
 
+/* =========================================================
+   GALLERY
+   ========================================================= */
+
+.gallery {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(12, 1fr);
+
+    gap: 10px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(80%);
+
+    cursor: pointer;
+
+    transition:
+        filter .5s ease,
+        transform .5s ease;
+}
+
+.gallery img:hover {
+    filter: grayscale(0);
+    transform: scale(1.02);
+}
+
+.g1 {
+    grid-column: span 7;
+    height: 520px;
+}
+
+.g2 {
+    grid-column: span 5;
+    height: 520px;
+}
+
+.g3,
+.g4,
+.g5 {
+    grid-column: span 4;
+    height: 360px;
+}
 
 
+/* =========================================================
+   VIDEO
+   ========================================================= */
+
+.video {
+    margin-top: 55px;
+
+    aspect-ratio: 16 / 9;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        #111
+        url("images/video-cover.jpg")
+        center / cover
+        no-repeat;
+}
+
+.video::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.2),
+            rgba(0,0,0,.6)
+        );
+}
+
+.video-btn {
+    width: 90px;
+    height: 90px;
+
+    position: relative;
+
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #fff;
+
+    border-radius: 50%;
+
+    font-size: 18px;
+
+    transition:
+        background .3s ease,
+        color .3s ease,
+        transform .3s ease;
+}
+
+.video-btn:hover {
+    background: #fff;
+    color: #000;
+
+    transform: scale(1.1);
+}
 
 
+/* =========================================================
+   BIO
+   ========================================================= */
+
+.bio-copy .btn {
+    margin-top: 10px;
+}
 
 
+/* =========================================================
+   TECHNICAL RIDER
+   ========================================================= */
+
+.rider {
+    margin-top: 55px;
+
+    border-top: 1px solid var(--line);
+
+    border-bottom: 1px solid var(--line);
+}
+
+.rider-row {
+    min-height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+
+    border-bottom: 1px solid var(--line);
+}
+
+.rider-row:last-child {
+    border-bottom: none;
+}
+
+.rider-row span {
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+}
+
+.rider-row strong {
+    color: #ddd;
+
+    font-size: 13px;
+
+    font-weight: 400;
+
+    text-align: right;
+}
 
 
+/* =========================================================
+   PRESS KIT
+   ========================================================= */
+
+.press {
+    background: #101010;
+}
+
+.press-grid {
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 1px;
+
+    background: var(--line);
+}
+
+.press a {
+    min-height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #101010;
+
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    text-align: center;
+
+    transition:
+        background .3s ease,
+        color .3s ease;
+}
+
+.press a:hover {
+    background: #fff;
+    color: #000;
+}
 
 
+/* =========================================================
+   SOCIALS
+   ========================================================= */
+
+.socials {
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+    font-size: 10px;
+
+    letter-spacing: .15em;
+}
+
+.socials a {
+    color: #aaa;
+
+    transition:
+        color .25s ease;
+}
+
+.socials a:hover {
+    color: #fff;
+}
 
 
+/* =========================================================
+   BOOKING
+   ========================================================= */
+
+.booking {
+    background: #eeeeee;
+
+    color: #080808;
+}
+
+.booking .kicker {
+    color: #777;
+}
+
+.booking h2 {
+    color: #080808;
+}
+
+.booking p {
+    max-width: 650px;
+
+    margin: 28px 0;
+
+    color: #555;
+
+    font-size: 16px;
+}
+
+.booking .btn {
+    border-color: #080808;
+
+    color: #080808;
+}
+
+.booking .btn:hover {
+    background: #080808;
+
+    color: #fff;
+}
+
+.form {
+    margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.field.full {
+    grid-column: 1 / -1;
+}
+
+label {
+    color: #555;
+
+    font-size: 9px;
+
+    letter-spacing: .16em;
+
+    text-transform: uppercase;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 16px;
+
+    border: 1px solid #ccc;
+
+    outline: none;
+
+    background: transparent;
+
+    color: #111;
+
+    font-size: 14px;
+
+    transition:
+        border-color .25s ease,
+        background .25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #111;
+
+    background: rgba(0,0,0,.025);
+}
+
+textarea {
+    min-height: 160px;
+
+    resize: vertical;
+}
+
+.form button {
+    cursor: pointer;
+}
 
 
+/* =========================================================
+   FOOTER
+   ========================================================= */
 
-<section class="section reveal" id="experience">
-  <div class="container">
-    <div class="kicker">04 — PERFORMANCE</div>
-    <h2>The Experience</h2>
-    <div class="experience-grid" style="margin-top:55px">
-      <div class="exp"><h3>Clubs</h3></div>
-      <div class="exp"><h3>Lounges</h3></div>
-      <div class="exp"><h3>Weddings</h3></div>
-      <div class="exp"><h3>Private Events</h3></div>
-      <div class="exp"><h3>Beach</h3></div>
-      <div class="exp"><h3>Café</h3></div>
-    </div>
-  </div>
-</section>
+footer {
+    padding: 65px 0;
 
-<section class="section reveal" id="media">
-  <div class="container">
-    <div class="kicker">05 — VISUALS</div>
-    <h2>Moments</h2>
-    <div class="gallery" style="margin-top:55px">
-      <img class="g1" src="images/gallery1.jpg" alt="KLVN performance">
-      <img class="g2" src="images/gallery2.jpg" alt="KLVN DJ set">
-      <img class="g3" src="images/gallery3.jpg" alt="KLVN nightlife">
-      <img class="g4" src="images/gallery4.jpg" alt="KLVN event">
-      <img class="g5" src="images/gallery5.jpg" alt="KLVN performance">
-    </div>
-  </div>
-</section>
+    border-top: 1px solid var(--line);
+}
 
-<section class="section reveal">
-  <div class="container">
-    <div class="bio-grid">
-      <div class="bio-copy">
-        <div class="kicker">06 — BIO</div>
-        <h2>About<br>KLVN</h2>
-        <p>KLVN is a DJ and music artist whose sets are built around atmosphere, movement, and crowd connection.</p>
-        <p>Moving between lounge environments, nightlife, private celebrations, and open-format events, KLVN approaches every performance as a different story.</p>
-        <p>His selections blend familiar records with unexpected transitions, balancing groove, energy, and emotion to create sets that feel natural from the first track to the last.</p>
-        <a class="btn secondary" href="downloads/klvn-bio.pdf">DOWNLOAD FULL BIO</a>
-      </div>
-      <div class="portrait" style="background-image:url('images/bio.jpg')"></div>
-    </div>
-  </div>
-</section>
+.footer-top {
+    display: flex;
 
-<section class="section reveal">
-  <div class="container">
-    <div class="kicker">07 — TECHNICAL</div>
-    <h2>Technical<br>Rider</h2>
-    <div class="rider" style="margin-top:55px">
-      <div class="rider-row"><span>DJ Controller</span><strong>Pioneer DJ DDJ-FLX4</strong></div>
-      <div class="rider-row"><span>Software</span><strong>Rekordbox / Ableton Live</strong></div>
-    </div>
-    <div style="margin-top:30px">
-      <a class="btn secondary" href="downloads/klvn-technical-rider.pdf">DOWNLOAD TECH RIDER PDF →</a>
-    </div>
-  </div>
-</section>
+    justify-content: space-between;
 
-<section class="section press reveal">
-  <div class="container">
-    <div class="kicker">08 — PRESS KIT</div>
-    <h2>Everything<br>You Need.</h2>
-    <div class="press-grid">
-      <a href="downloads/klvn-epk.pdf">DOWNLOAD EPK ↓</a>
-      <a href="downloads/klvn-photos.zip">HIGH-RES PHOTOS ↓</a>
-      <a href="downloads/klvn-bio.pdf">DJ BIO ↓</a>
-      <a href="downloads/klvn-technical-rider.pdf">TECH RIDER ↓</a>
-    </div>
-  </div>
-</section>
+    align-items: flex-start;
 
-<section class="section reveal">
-  <div class="container">
-    <div class="kicker">09 — SOCIAL</div>
-    <h2>Follow<br>The Journey</h2>
-    <div class="socials" style="margin-top:45px;font-size:15px">
-      <a href="https://www.instagram.com/__kalvii/" target="_blank">INSTAGRAM →</a>
-      <a href="https://soundcloud.com/kalv-atienza/" target="_blank">SOUNDCLOUD →</a>
-      <a href="https://www.facebook.com/princekalvengalera.atienza/" target="_blank">FACEBOOK</a>
-    </div>
-  </div>
-</section>
+    gap: 40px;
+}
 
-<section class="section booking reveal" id="booking">
-  <div class="container">
-    <div class="kicker">10 — BOOKINGS</div>
-    <h2>Let's Make<br>Something Loud.</h2>
-    <p>Available for clubs, lounges, weddings, private events, brand activations, and special projects.</p>
-    <form class="form" id="bookingForm">
-      <div class="field"><label>Name</label><input type="text" name="name" required></div>
-      <div class="field"><label>Email</label><input type="email" name="email" required></div>
-      <div class="field"><label>Phone / WhatsApp</label><input type="text" name="phone"></div>
-      <div class="field"><label>Event Type</label>
-        <select name="event">
-          <option>Club</option><option>Bar</option><option>Lounge</option><option>Wedding</option>
-          <option>Private Event</option><option>Corporate Event</option><option>Brand Event</option>
-          <option>Festival</option><option>Other</option>
-        </select>
-      </div>
-      <div class="field"><label>Event Date</label><input type="date" name="date"></div>
-      <div class="field"><label>Event Location</label><input type="text" name="location"></div>
-      <div class="field"><label>Expected Guests</label><input type="number" name="guests"></div>
-      <div class="field"><label>Set Duration</label><input type="text" name="duration" placeholder="e.g. 2 hours"></div>
-      <div class="field"><label>Budget Range</label><input type="text" name="budget" placeholder="Optional"></div>
-      <div class="field full"><label>Message</label><textarea name="message" placeholder="Tell me about your event..."></textarea></div>
-      <div class="field full"><button class="btn" type="submit">SEND BOOKING INQUIRY →</button></div>
-    </form>
-  </div>
-</section>
+.footer-logo {
+    font-size: clamp(65px, 9vw, 120px);
 
-</main>
+    font-weight: 900;
 
-<footer>
-  <div class="container">
-    <div class="footer-top">
-      <div>
-        <div class="footer-logo">KLVN</div>
-        <div class="kicker" style="margin-top:12px">DJ / MUSIC ARTIST</div>
-      </div>
-      <div class="socials">
-        <a href="https://www.instagram.com/__kalvii/" target="_blank">INSTAGRAM</a>
-        <a href="https://soundcloud.com/kalv-atienza" target="_blank">SOUNDCLOUD</a>
-	<a href="https://www.facebook.com/princekalvengalera.atienza/" target="_blank">FACEBOOK</a>
-      </div>
-    </div>
-    <div class="copyright">© 2026 KLVN. ALL RIGHTS RESERVED. — QUEZON CITY, PHILIPPINES</div>
-  </div>
-</footer>
+    line-height: .75;
 
-<script>
-const menuBtn=document.getElementById('menuBtn');
-const navLinks=document.getElementById('navLinks');
+    letter-spacing: -.08em;
+}
 
-menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
-document.querySelectorAll('.nav-links a').forEach(a=>{
-  a.addEventListener('click',()=>navLinks.classList.remove('open'));
-});
+.copyright {
+    margin-top: 60px;
 
-const observer=new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-},{threshold:.12});
+    color: #4d4d4d;
 
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    font-size: 9px;
 
-document.getElementById('bookingForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  const data=new FormData(this);
-  const subject=encodeURIComponent('KLVN DJ Booking Inquiry — '+(data.get('event')||'Event'));
-  const body=encodeURIComponent(
-`Name: ${data.get('name')}
-Email: ${data.get('email')}
-Phone: ${data.get('phone')}
-Event Type: ${data.get('event')}
-Date: ${data.get('date')}
-Location: ${data.get('location')}
-Guests: ${data.get('guests')}
-Set Duration: ${data.get('duration')}
-Budget: ${data.get('budget')}
+    letter-spacing: .14em;
+}
 
-Message:
-${data.get('message')}`
-  );
-  window.location.href=`mailto:kalvatienza@gmail.com?subject=${subject}&body=${body}`;
-});
-</script>
 
-</body>
-</html>
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(35px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .section {
+        padding: 100px 0;
+    }
+
+    .intro-grid,
+    .bio-grid {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .portrait {
+        max-width: 600px;
+    }
+
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .press-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        width: 90%;
+    }
+
+    .section {
+        padding: 80px 0;
+    }
+
+
+    /* NAV */
+
+    .nav-links {
+        display: none;
+
+        position: absolute;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+
+        flex-direction: column;
+
+        gap: 22px;
+
+        background: rgba(7,7,7,.98);
+
+        border-bottom: 1px solid var(--line);
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 110vh;
+    }
+
+    .hero h1 {
+        font-size: 27vw;
+    }
+
+    .hero-sub {
+        display: block;
+    }
+
+    .hero-sub p {
+        font-size: 14px;
+    }
+
+    .hero-actions {
+        margin-top: 25px;
+
+        flex-direction: column;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+    }
+
+    .scroll {
+        display: none;
+    }
+
+
+    /* ABOUT */
+
+    .intro-grid,
+    .bio-grid {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+    }
+
+    .intro-copy p,
+    .bio-copy p {
+        font-size: 15px;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* MUSIC */
+
+    .music-header {
+        display: block;
+    }
+
+    .music-header .btn {
+        margin-top: 25px;
+    }
+
+    .music-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mix {
+        min-height: 330px;
+    }
+
+
+    /* STYLES */
+
+    .styles {
+        grid-template-columns: 1fr;
+    }
+
+    .style {
+        min-height: auto;
+    }
+
+
+    /* EXPERIENCE */
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .exp {
+        min-height: 320px;
+    }
+
+
+    /* GALLERY */
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .g1,
+    .g2,
+    .g3,
+    .g4,
+    .g5 {
+        grid-column: span 1;
+
+        height: 360px;
+    }
+
+
+    /* PRESS */
+
+    .press-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    /* BOOKING */
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .field.full {
+        grid-column: auto;
+    }
+
+
+    /* FOOTER */
+
+    .footer-top {
+        display: block;
+    }
+
+    .footer-top .socials {
+        margin-top: 35px;
+    }
+
+    .footer-logo {
+        font-size: 70px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .section {
+        padding: 70px 0;
+    }
+
+    h2 {
+        font-size: 48px;
+    }
+
+    .hero {
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        padding-bottom: 65px;
+    }
+
+    .hero h1 {
+        font-size: 29vw;
+    }
+
+    .mix {
+        min-height: 290px;
+
+        padding: 24px;
+    }
+
+    .mix h3 {
+        font-size: 25px;
+    }
+
+    .exp {
+        min-height: 280px;
+    }
+
+    .press-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .press a {
+        min-height: 70px;
+    }
+
+    .rider-row {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 5px;
+
+        padding: 20px 0;
+    }
+
+    .rider-row strong {
+        text-align: left;
+    }
+
+    .footer-logo {
+        font-size: 60px;
+    }
+}
